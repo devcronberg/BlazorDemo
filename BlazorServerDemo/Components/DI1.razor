@@ -1,0 +1,13 @@
+﻿@inject MCronberg.IPersonRepository rep
+<h3>Dependency Injection 1</h3>
+
+<ul>
+    @foreach (var item in rep.GetPeople(10))
+    {
+        <li>@item.FirstName @item.LastName</li>
+    }
+</ul>
+
+@code {
+
+}

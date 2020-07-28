@@ -4,4 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MCronberg.CSCourseHelper.Standard" Version="1.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorComponentDemo\BlazorComponentDemo.csproj" />
+  </ItemGroup>
+
 </Project>

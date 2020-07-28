@@ -1,0 +1,19 @@
+﻿@page "/random4/{Min:int}/{Max:int}"
+<hr />
+<h3>Random 4</h3>
+<div>@Tal</div>
+<hr />
+@code {
+    public int Tal { get; private set; }
+
+    [Parameter]
+    public int Min { get; set; }
+    [Parameter]
+    public int Max { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        this.Tal = new Random().Next(Min, Max);
+    }
+}

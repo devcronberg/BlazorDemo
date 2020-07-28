@@ -28,6 +28,7 @@ namespace BlazorServerDemo
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<MCronberg.IPersonRepository, MCronberg.PersonRepositoryRandom>();
             
         }
 

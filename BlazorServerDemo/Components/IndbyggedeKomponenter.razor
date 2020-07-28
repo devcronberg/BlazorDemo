@@ -1,0 +1,50 @@
+﻿<h3>Indbyggede komponenter</h3>
+
+<EditForm Model="person">
+    <label>
+        Navn: <InputText @bind-Value="person.Navn"></InputText>
+    </label>
+    <label>
+        Antal biler: <InputNumber @bind-Value="person.AntalBiler"></InputNumber>
+    </label>
+    <label>
+        Smart: <InputCheckbox @bind-Value="person.Smart"></InputCheckbox>
+    </label>
+    <label>
+        Land: <InputSelect @bind-Value="person.Land">
+            @foreach (var land in lande)
+            {
+                <option value="@land.Value">@land.Name</option>
+            }
+        </InputSelect>
+    </label>
+
+</EditForm>
+
+@code {
+
+    Person person = new Person { Id = 1, Navn = "test", Smart = true, AntalBiler = 1, Land = "DK" };
+    List<Land> lande = new List<Land>();
+
+    protected override void OnInitialized()
+    {
+        lande.Add(new Land() { Value = "SE", Name = "Sverige" });
+        lande.Add(new Land() { Value = "DK", Name = "Danmark" });
+    }
+
+    class Person
+    {
+        public int Id { get; set; }
+        public string Navn { get; set; }
+        public int AntalBiler { get; set; }
+        public bool Smart { get; set; }
+        public string Land { get; set; }
+    }
+
+    class Land {
+        public string Value { get; set; }
+        public string Name { get; set; }
+    }
+
+
+}

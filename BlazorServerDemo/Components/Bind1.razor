@@ -1,0 +1,33 @@
+﻿<h3>Bind 1</h3>
+
+<input @bind="Tekst" />
+
+<input @bind="Tekst" @bind:event="oninput" />
+<input @bind="Style" />
+
+<p @bind-style="Style" @bind-style:event="onchange">[@Tekst]</p>
+
+<button @onclick="Klik">Klik</button>
+
+<input @bind="Dato" @bind:format="yyyy-MM-dd" />
+
+@code {
+
+    public string Tekst { get; set; }
+    public string Style { get; set; }
+    public DateTime Dato { get; set; }
+    protected override void OnInitialized()
+    {
+        Tekst = "Test1";
+        Style = "color:black";
+        Dato = DateTime.Now;
+        base.OnInitialized();
+    }
+
+    void Klik() {
+        // Server
+        System.Diagnostics.Debug.WriteLine(Tekst);
+        // WASM
+        Console.WriteLine(Tekst);
+    }
+}

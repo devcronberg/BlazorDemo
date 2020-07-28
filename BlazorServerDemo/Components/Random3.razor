@@ -1,0 +1,14 @@
+﻿@page "/random3"
+<hr />
+<h3>Random 3</h3>
+<div>@Tal</div>
+<hr />
+@code {
+    public int Tal { get; private set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        this.Tal = new Random().Next(1, 1000);
+    }
+}
